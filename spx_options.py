@@ -139,7 +139,7 @@ def fetch_json(session: requests.Session, url: str) -> dict:
         headers={
             "User-Agent": UA,
             "Accept": "*/*",
-            "Referer": f"{BASE_URL}/beta-test/OptionsDataViewer",
+            "Referer": f"{BASE_URL}/OptionsDataViewer",
             "Cache-Control": "no-cache",
             "Pragma": "no-cache",
         },
