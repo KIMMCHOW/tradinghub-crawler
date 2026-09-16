@@ -1,13 +1,13 @@
 # TradingHub OptionsDataViewer — 数据接口逆向分析
 
 ## 结论（TL;DR）
-页面 `https://tradinghubs.org/beta-test/OptionsDataViewer` 的**全部期权数据（表格 + 图表）**都来自两个 JSON 接口，
+页面 `https://tradinghubs.org/OptionsDataViewer` 的**全部期权数据（表格 + 图表）**都来自两个 JSON 接口，
 仅靠一个会话 Cookie 鉴权：`tradinghub_user_session`。无需截图、无需浏览器自动化。
 
 页面用 `echarts` 在客户端把 JSON 渲染成图表，所以"图表的数据"也是 JSON 里现成的。
 
 ## 鉴权
-- 整个 `/beta-test/` 路径（含静态文件 app.js）都要登录。
+- 浏览器入口 `/OptionsDataViewer` 要求登录；底层数据接口仍位于 `/beta-test/api/*` 内部代理路径。
 - 请求只需带 Cookie：`Cookie: tradinghub_user_session=<值>`
 - 无额外 token 头（响应头里提到 `X-TradingHub-Internal-Token`，但 viewer 的数据接口不使用）。
 

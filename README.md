@@ -1,6 +1,6 @@
 # TradingHub SPX 期权数据抓取工具
 
-把 `https://tradinghubs.org/beta-test/OptionsDataViewer` 页面上的**全部期权数据（表格 + 图表）**
+把 `https://tradinghubs.org/OptionsDataViewer` 页面上的**全部期权数据（表格 + 图表）**
 直接抓成 JSON，免去手动截图喂给 AI 的麻烦。
 
 > 工作原理：该页面的所有数据（包括 echarts 图表的数据）都来自两个 JSON 接口，
@@ -213,9 +213,15 @@ schema 里对每个字段都标注了含义/单位/页面位置，并对 `strike
 - `3` 网络/接口请求失败
 - `4` 指定标的无数据
 
+## TradingHub 产品关系
+
+- OptionsDataViewer（ODV）是 TradingHub 网站上的免费期权数据查看与分析工具，注册并登录 TradingHub 账号即可使用。
+- Options Level Pro（OLP）是 TradingHub 面向 ATAS 平台提供的独立插件产品，需要下载安装到 ATAS 中使用，并采用单独授权机制。
+- 本工具读取的是登录后的 ODV 页面数据，并不要求用户购买 Options Level Pro 订阅。
+
 ## 注意事项
 
-- 这是付费订阅（Options Level Pro）的数据。本工具仅供订阅者自动化自己访问使用，
+- 本工具仅供 TradingHub 注册用户自动化访问自己账号可见的 OptionsDataViewer 数据使用，
   请遵守 [TradingHub 服务条款](https://tradinghubs.org)。不要把抓到的数据再分发。
 - 登录接口无验证码；若账号开启了设备授权/二次验证，自动登录可能失败——
   此时改用浏览器登录后复制 Cookie 的方式（可参考 `ANALYSIS.md` 自行改造）。
